@@ -22,7 +22,7 @@ public class UserRegistration {
     }
 
     public boolean validateEmail(String email){
-        String regexForEmail="^[a-zA-Z]+([._+-][0-9a-zA-Z]+)*@[0-9a-zA-Z]+.[a-zA-Z]{2,4}([.][a-zA-Z]{2})*$";
+        String regexForEmail="^[a-zA-Z]+([._+-]{0,1}[0-9a-zA-Z]+)*@[0-9a-zA-Z]+.[a-zA-Z]{2,4}+(?:\\.[a-z]{2,}){0,1}$";
         if(Pattern.matches(regexForEmail, email)) {
             return true;
         }
@@ -57,7 +57,7 @@ public class UserRegistration {
         System.out.println("Enter the password: ");
         String Password=sc.nextLine();
         String regexForName="[A-Z]{1}[a-z]{2,}";
-        String regexForEmail="^[a-zA-Z]+([._+-][0-9a-zA-Z]+)*@[0-9a-zA-Z]+.[a-zA-Z]{2,4}([.][a-zA-Z]{2})$";
+        String regexForEmail="^[a-zA-Z]+([._+-]{0,1}[0-9a-zA-Z]+)*@[0-9a-zA-Z]+.[a-zA-Z]{2,4}+(?:\\.[a-z]{2,}){0,1}$";
         String regexForPhoneNo="[91 ]{3}[6-9][0-9]{9}";
         String regexForPassword="^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%&]).{8,}$";
         if(Pattern.matches(regexForName, FirstName)) {
