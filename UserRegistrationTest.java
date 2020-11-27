@@ -27,6 +27,7 @@ public class UserRegistrationTest {
         assertFalse(ur.validateEmail("abc@abc@gmail.com"));
         assertFalse(ur.validateEmail("abc()*@gmail.com"));
         assertFalse(ur.validateEmail("abc@%*.com"));
+        assertFalse(ur.validateEmail("abc@gmail.com.aa.au"));
     }
     @Test
     public void validatePasswordTest(){
