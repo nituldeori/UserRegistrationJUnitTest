@@ -5,44 +5,74 @@ import java.util.regex.Pattern;
 
 public class UserRegistration {
 
-    public boolean validateFirstName(String firstName){
+    public boolean validateFirstName(String firstName) throws UserRegistrationException{
         String regexForName="[A-Z]{1}[a-z]{2,}";
-        if(Pattern.matches(regexForName, firstName)) {
-            return true;
+        try{
+            if(firstName.length()==0)
+                throw new UserRegistrationException("Please enter valid First Name");
+            else if(!(Pattern.matches(regexForName, firstName)))
+                throw new UserRegistrationException("Please enter valid First Name");
+            else
+                return true;
+        } catch (NullPointerException e){
+            throw new UserRegistrationException("Please enter valid First Name");
         }
-        return false;
     }
 
-    public boolean validateLastName(String lastName){
+    public boolean validateLastName(String lastName) throws UserRegistrationException{
         String regexForName="[A-Z]{1}[a-z]{2,}";
-        if(Pattern.matches(regexForName, lastName)) {
-            return true;
+        try{
+            if(lastName.length()==0)
+                throw new UserRegistrationException("Please enter valid Last Name");
+            else if(!(Pattern.matches(regexForName, lastName)))
+                throw new UserRegistrationException("Please enter valid Last Name");
+            else
+                return true;
+        } catch (NullPointerException e){
+            throw new UserRegistrationException("Please enter valid Last Name");
         }
-        return false;
     }
 
-    public boolean validateEmail(String email){
+    public boolean validateEmail(String email) throws UserRegistrationException{
         String regexForEmail="^[a-zA-Z]+([._+-]{0,1}[0-9a-zA-Z]+)*@[0-9a-zA-Z]+.[a-zA-Z]{2,4}+(?:\\.[a-z]{2,}){0,1}$";
-        if(Pattern.matches(regexForEmail, email)) {
-            return true;
+        try{
+            if(email.length()==0)
+                throw new UserRegistrationException("Please enter valid email");
+            else if(!(Pattern.matches(regexForEmail, email)))
+                throw new UserRegistrationException("Please enter valid email");
+            else
+                return true;
+        } catch (NullPointerException e){
+            throw new UserRegistrationException("Please enter valid email");
         }
-        return false;
     }
 
-    public boolean validatePhoneNo(String phoneNo){
+    public boolean validatePhoneNo(String phoneNo) throws UserRegistrationException{
         String regexForPhoneNo="[91 ]{3}[6-9][0-9]{9}";
-        if(Pattern.matches(regexForPhoneNo, phoneNo)) {
-            return true;
+        try{
+            if(phoneNo.length()==0)
+                throw new UserRegistrationException("Please enter valid PhoneNo");
+            else if(!(Pattern.matches(regexForPhoneNo, phoneNo)))
+                throw new UserRegistrationException("Please enter valid PhoneNo");
+            else
+                return true;
+        } catch (NullPointerException e){
+            throw new UserRegistrationException("Please enter valid PhoneNo");
         }
-        return false;
     }
 
-    public boolean validatePassword(String password){
+    public boolean validatePassword(String password) throws UserRegistrationException{
         String regexForPassword="^(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%&]).{8,}$";
-        if(Pattern.matches(regexForPassword, password)) {
-            return true;
+        try{
+            if(password.length()==0)
+                throw new UserRegistrationException("Please enter valid password");
+            else if(!(Pattern.matches(regexForPassword, password)))
+                throw new UserRegistrationException("Please enter valid password");
+            else
+                return true;
+        } catch (NullPointerException e){
+            throw new UserRegistrationException("Please enter valid password");
         }
-        return false;
     }
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
